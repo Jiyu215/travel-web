@@ -133,3 +133,26 @@ input:focus {
 .visual-right img{
     width: 100%;
 }
+
+/* main contain */
+#contain{
+    width: 100%;
+}
+#best-weahter{
+    width: 100%;
+}
+#best-weather-warp{
+    margin:0 80px;
+}
+#best-weather-warp .title{
+    font-weight: bold;
+    text-align: center;
+    margin: 80px 0px;
+}
+#best-weather-warp .title .sub{
+    font-size: 1.4rem;
+    color:rgb(0, 29, 108)
+}
+#best-weather-warp .title .main{
+    font-size: 2.6rem;
+}
