@@ -1,0 +1,135 @@
+/* 기본 설정 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+*{
+    font-family: 'Pretendard-Regular';
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+input[type="text"]{
+    border: none;
+}
+input::placeholder{
+    font-size: 0.9rem;
+}
+#warp{
+    width: 100%;
+}
+
+/* 효과 */
+input:focus {
+    outline: none;
+}
+
+/* header */
+#header{
+    width: 100%;
+    height: 90px;
+    background-color: white;
+}
+.header-menu{
+    margin:0px 80px;
+    justify-content: space-between;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.menu-left{
+    display: flex;
+}
+.menu-right{
+    margin-right: 16px;
+    display: flex;
+}
+.header-menu .menu-left{
+    margin-left: 16px;
+}
+.menu-list li, .menu-list li a , #search-box .search{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.menu-list li a {
+    font-size: 1.2rem;
+    width: 100%;
+    height: 100%;
+    padding:16px;
+}
+.menu-list, #search-box .search{
+    display: flex;
+}
+#search-box .search{
+    gap:16px;
+    margin-left: 16px;
+    padding: 0 5%;
+}
+#search-box .search .search-input-box{
+    display: flex;
+    width: 320px;
+    padding: 0 8px;
+    border-bottom: 1px solid black;
+}
+
+#search-box .search .search-input-box input{
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+}
+
+/* main visual */
+#main-visual{
+    width: 100%;
+    background-color: rgb(228, 246, 255);
+}
+#main-visual-warp{
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    margin: 0 80px;
+}
+.visual-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:16px;
+    font-size: 1.2rem;
+    margin-left: 96px;
+}
+.visual-left .title h1, .visual-left .title p{
+    margin-bottom:48px;
+}
+.visual-left .title h1{
+    font-size: 3.5rem;
+}
+.visual-left .location-btn{
+    width: 100%;
+    height: auto;
+}
+.visual-left .location-btn a{
+    background-color: rgb(77, 178, 222);
+    border:2px solid  rgb(77, 178, 222);
+    padding: 5% 10%;
+    width: 100%;
+    height: auto;
+    color:white;
+    border-radius: 16px;
+}
+.visual-right{
+    display: flex;
+    align-items: center;
+    margin-right: 96px;
+}
+.visual-right img{
+    width: 100%;
+}

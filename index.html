@@ -4,32 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Weather</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div id="warp">
-        <div id="header">
-            <div class="header-menu">
-                <div class="menu-left">
-                    <img src="./img/logo.svg" alt="Travel Weather Logo" class="logo">
-                </div>
-                <div class="menu-right">
-                    <ul class="menu-list">
-                        <li><a href="#">홈</a></li>
-                        <li><a href="#">지역별 날씨</a></li>
-                        <li><a href="#">여행지 추천</a></li>
-                        <li><a href="#">지도</a></li>
-                    </ul>
-                    <div id="search-box">
-                        <div class="search">
-                            <div class="search-input-box">
-                                <input type="text">
-                            </div>
-                            <div class="search-icon">
-                                <img src="./img/search_icon.svg" alt="icon">
+        <div id="main-warp">
+            <div id="header">
+                <div class="header-menu">
+                    <div class="menu-left">
+                        <img src="./img/logo.svg" alt="Travel Weather Logo" class="logo">
+                    </div>
+                    <div class="menu-right">
+                        <ul class="menu-list">
+                            <li><a href="#">홈</a></li>
+                            <li><a href="./weather.html">지역별 날씨</a></li>
+                            <li><a href="#">여행지 추천</a></li>
+                            <li><a href="#">지도</a></li>
+                        </ul>
+                        <div id="search-box">
+                            <div class="search">
+                                <div class="search-input-box">
+                                    <input type="text" placeholder="어디로 떠나시나요? 여행지를 검색해 보세요">
+                                    <img src="./img/search_icon.svg" alt="icon" class="search-icon">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <a href="./weather.html">테스트 페이지 이동하기</a>
+                </div>
+            </div>
+            <div id="main-visual">
+                <div id="main-visual-warp">
+                    <div class="visual-left">
+                        <div class="title">
+                            <h1>전국 여행지와<br> 날씨 정보를 한눈에!</h1>
+                            <p>전국의 아름다운 관광지와 최신 날씨 정보를 한눈에 확인하세요.</p>
+                        </div>
+                        <div class="location-btn"><a href="#">내위치 확인하기</a></div>
+                    </div>
+                    <div class="visual-right">
+                        <img src="./img/main-img.svg" alt="main-img">
+                    </div>
+                </div>
+            </div>
+            <div id="contain">
+                <div id="best-weather">
+                    <div id="best-weather-warp">
+                        <div class="title">
+                            <p class="sub">이번추 추천 여행지</p>
+                            <p class="main">날씨가 좋은 여행지 추천</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
