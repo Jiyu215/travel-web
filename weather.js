@@ -28,6 +28,11 @@ fetch(apiUrl + queryParams)
   for (let index = 0; index < cities.length; index++) {
     citiesList.insertAdjacentHTML(
         "beforeend",
-        `<li value="${cities[index]}">${cities[index]}</li>`
+        `<li value="${cities[index]}">
+        <ul>
+        <li class="image"></li>
+        <li class="text">${cities[index]}</li>
+        </ul>
+        </li>`
     );
   }

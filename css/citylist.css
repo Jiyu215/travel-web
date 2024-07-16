@@ -1,0 +1,27 @@
+#main-visual-warp > div.visual-left > div.title{
+    margin-top:10%;
+}
+
+#cities-list{
+    display: flex;
+    gap: 2%;
+    margin-bottom: 10%;
+    width: 45%;
+}
+.cities-slide{
+    display: flex;
+}
+#cities-list li ul{
+    text-align: center;
+    justify-items: center;
+}
+#cities-list li ul .image{
+    width: 75px;
+    height: 75px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+#cities-list li ul .text{
+    padding: 10%;
+}
