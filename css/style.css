@@ -1,0 +1,33 @@
+/* 기본 설정 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+*{
+    font-family: 'Pretendard-Regular';
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+input[type="text"]{
+    border: none;
+}
+input::placeholder{
+    font-size: 0.9rem;
+}
+#warp{
+    width: 100%;
+}
+
+/* 효과 */
+input:focus {
+    outline: none;
+}

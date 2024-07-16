@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Weather</title>
+    <!-- style -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/header.css">
+</head>
+<body>
+    <div id="warp">
+        <div id="main-warp">
+            <div id="header">
+                <div class="header-menu">
+                    <div class="menu-left">
+                        <img src="./img/logo.svg" alt="Travel Weather Logo" class="logo">
+                    </div>
+                    <div class="menu-right">
+                        <ul class="menu-list">
+                            <li><a href="./index.html">홈</a></li>
+                            <li><a href="./weather.html">지역별 날씨</a></li>
+                            <li><a href="#">여행지 추천</a></li>
+                            <li><a href="#">지도</a></li>
+                        </ul>
+                        <div id="search-box">
+                            <div class="search">
+                                <div class="search-input-box">
+                                    <input type="text" placeholder="어디로 떠나시나요? 여행지를 검색해 보세요">
+                                    <img src="./img/search_icon.svg" alt="icon" class="search-icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="main-visual">
+                <div id="main-visual-warp">
+                    <div class="visual-left">
+                        <div class="title">
+                            <h1>오늘의 날씨</h1>
+                            <p>전국의 날씨정보를 확인하세요.</p>
+                        </div>
+                        <ul id="cities-list">
+                        </ul>
+                    </div>
+                    <div class="visual-right">
+                        <img src="./img/suitcase.svg" alt="main-img">
+                    </div>
+                </div>
+            </div>
+            <div id="contain">
+                <div id="best-weather">
+                    <div id="best-weather-warp">
+                        <div class="title">
+                            <p class="sub">이번주 추천 여행지</p>
+                            <p class="main">날씨가 좋은 여행지 추천</p>
+                        </div>
+                        <div id="wether-card-list">
+                            <ul class="wether-card-list">
+                                <!-- <img src="https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/6287cec8-b327-463a-9fc6-2651c9e2cc57.jpeg" alt=""> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- Javascript -->
+<script src="./weather.js" type="module"></script>
+</html>
