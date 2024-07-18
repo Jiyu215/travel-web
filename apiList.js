@@ -22,19 +22,104 @@ const cityXYList = {
 const cityKeys = Object.keys(cityXYList);
 const citiesList = document.getElementById("cities-list");
 
+// for (let index = 0; index < cityKeys.length; index++) {
+//   citiesList.insertAdjacentHTML(
+//       "beforeend",
+//       `<li value="${cityKeys[index]}">
+//       <ul>
+//         <li class="image"></li>
+//         <li class="text">${cityKeys[index]}</li>
+//       </ul>
+//       </li>`
+//   );
+// }
+
+
+//메인화면 날씨가 좋은 여행지 추천 카드
+const weatherTripList = document.getElementById("card-list-box");
 for (let index = 0; index < cityKeys.length; index++) {
-  citiesList.insertAdjacentHTML(
-      "beforeend",
-      `<li value="${cityKeys[index]}">
+  weatherTripList.insertAdjacentHTML(
+    "beforeend",
+    `<li class="card">
       <ul>
-        <li class="image"></li>
-        <li class="text">${cityKeys[index]}</li>
-      </ul>
-      </li>`
+          <div class="card_top"><img src="https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/6287cec8-b327-463a-9fc6-2651c9e2cc57.jpeg" alt="" draggable="false"></div>
+          <div class="card_bottom">
+              <h2 class="card_title">부산</h2>
+              <span class="card_body">현재 기온, 온도, 상태</span>
+            </div>
+        </ul>
+    </li>`
   );
 }
-citiesList.addEventListener("click",(e)=>{
-  
-});
+
+// 슬라이더
+document.addEventListener("DOMContentLoaded", function() { 
+  const listBox = document.getElementById("card-list-box"); 
+  const arrowBtns = document.querySelectorAll("#best-weather-warp .btn"); 
+  const wrapper = document.getElementById("best-weather-warp"); 
+
+  const firstCard = listBox.querySelector(".card"); 
+  const firstCardWidth = firstCard.offsetWidth; 
+
+  let isDragging = false, 
+      startX, 
+      startScrollLeft, 
+      timeoutId; 
+
+  const dragStart = (e) => {  
+      isDragging = true; 
+      listBox.classList.add("dragging"); 
+      startX = e.pageX; 
+      startScrollLeft = listBox.scrollLeft; 
+  }; 
+
+  const dragging = (e) => { 
+      if (!isDragging) return; 
+    
+      const newScrollLeft = startScrollLeft - (e.pageX - startX); 
+    
+      if (newScrollLeft <= 0 || newScrollLeft >=  
+          listBox.scrollWidth - listBox.offsetWidth) { 
+            
+          isDragging = false; 
+          return; 
+      } 
+    
+      listBox.scrollLeft = newScrollLeft; 
+  }; 
+
+  const dragStop = () => { 
+      isDragging = false;  
+      listBox.classList.remove("dragging"); 
+  }; 
+
+  const autoPlay = () => { 
+    
+      if (window.innerWidth < 800) return;  
+        
+      const totalCardWidth = listBox.scrollWidth; 
+        
+      const maxScrollLeft = totalCardWidth - listBox.offsetWidth; 
+        
+      if (listBox.scrollLeft >= maxScrollLeft) return; 
+        
+      timeoutId = setTimeout(() =>  
+          listBox.scrollLeft += firstCardWidth, 2500); 
+  }; 
+
+  listBox.addEventListener("mousedown", dragStart); 
+  listBox.addEventListener("mousemove", dragging); 
+  listBox.addEventListener("mouseup", dragStop); 
+  wrapper.addEventListener("mouseenter", () =>  
+      clearTimeout(timeoutId)); 
+  wrapper.addEventListener("mouseleave", autoPlay); 
+
+  arrowBtns.forEach(btn => { 
+      btn.addEventListener("click", () => { 
+          listBox.scrollLeft += btn.id === "prev" ?  -firstCardWidth : firstCardWidth; 
+      }); 
+  }); 
+}); 
+
 export {cityXYList,cityKeys};
 

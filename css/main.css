@@ -1,0 +1,115 @@
+#best-weather{
+    margin-bottom: 10%;
+}
+#weather-card-list{
+    margin: 0 auto;
+    max-width: 90%;
+    width: 100%;
+    position: relative;
+}
+
+#weather-card-list > div{
+    height: 50px; 
+    width: 50px; 
+    background: rgb(77, 178, 222); 
+    text-align: center; 
+    line-height: 50px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    position: absolute; 
+    top: 50%; 
+    color: white;
+    transform: translateY(-50%); 
+    box-shadow: 0 3px 6px rgba(77, 178, 222,0.5); 
+}
+#weather-card-list > div:first-child{
+    left: -22px;
+}
+
+#weather-card-list > div:last-child{
+    right: -22px;
+}
+#card-list-box{
+    display: grid; 
+    grid-auto-flow: column; 
+    grid-auto-columns: calc((100% / 3) - 12px); 
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth; 
+    scrollbar-width: 0; 
+}
+#card-list-box::-webkit-scrollbar { 
+    display: none; 
+} 
+
+#card-list-box::where(.card, .card_top) { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+} 
+
+#card-list-box.dragging { 
+    scroll-snap-type: none; 
+    scroll-behavior: auto; 
+} 
+  
+#card-list-box.no-transition { 
+    scroll-behavior: auto; 
+} 
+  
+#card-list-box.dragging .card { 
+    cursor: grab; 
+    user-select: none; 
+} 
+#card-list-box .card img{
+    width: 400px; 
+    height: 100%; 
+ }
+  
+#card-list-box .card { 
+    scroll-snap-align: start; 
+    height: 340px; 
+    list-style: none; 
+    background: #fff; 
+    border-radius: 8px; 
+    display: flex; 
+    cursor: pointer; 
+    width: 100%; 
+    padding-bottom: 15px; 
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column; 
+} 
+
+
+#card-list-box .card .card_top{ 
+    width: 30%;
+    height: auto;
+    border-radius: 50%; 
+}
+
+#card-list-box .card .card_bottom h2{
+    font-weight: 500; 
+    font-size: 1.56rem; 
+    margin: 30px 0 5px; 
+} 
+
+#card-list-box .card .card_bottom span{
+    color: #6a6d78; 
+    font-size: 1.31rem; 
+}
+
+
+@media screen and (max-width: 1600px) { 
+    #weather-card-list #card-list-box { 
+        grid-auto-columns: calc((100% / 2) - 9px); 
+  
+    } 
+} 
+  
+@media screen and (max-width: 1280px) { 
+    #weather-card-list #card-list-box { 
+        grid-auto-columns: 100%; 
+
+    } 
+}
