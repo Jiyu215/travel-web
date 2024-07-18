@@ -77,26 +77,56 @@ import { cityXYList } from "./apiList.js";
     // console.log(dfs_xy_conv("toXY", 38, 128));
 
 
-// 날씨정보 불러오기
-const apiUrl = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst'; // API URL
+// 날씨정보 불러오기 - 수정
 const serviceKey = 'ui5W61Qvj9ahZI1O8GFd%2B%2FQZjHpq5VXGsL70C1ux98Rzj97jqIoynNK4AtFCQ7eygK79sd0IUBumhbCgGZsQqA%3D%3D'; // 발급받은 서비스 키를 여기에 넣어주세요
-let queryParams = `?serviceKey=${serviceKey}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=20240717&base_time=0600&nx=55&ny=127`;
-const cityKey = Object.keys(cityXYList);
-for (let index = 0; index < cityXYList.length; index++) {
-  fetch(apiUrl + queryParams)
+const pyt_code = {0 : '강수 없음', 1 : '비', 2 : '비/눈', 3 : '눈', 5 : '빗방울', 6 : '진눈깨비', 7 : '눈날림'}
+const sky_code = {1 : '맑음', 3 : '구름많음', 4 : '흐림'};
+let apiUrl = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst'; /*URL*/
+let queryParams = '?' + encodeURIComponent('serviceKey') + '='+`${serviceKey}`; /*Service Key*/
+queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('1000'); /**/
+queryParams += '&' + encodeURIComponent('dataType') + '=' + encodeURIComponent('JSON'); /**/
+queryParams += '&' + encodeURIComponent('base_date') + '=' + encodeURIComponent('20240718'); /**/
+queryParams += '&' + encodeURIComponent('base_time') + '=' + encodeURIComponent('1500'); /**/
+queryParams += '&' + encodeURIComponent('nx') + '=' + encodeURIComponent('55'); /**/
+queryParams += '&' + encodeURIComponent('ny') + '=' + encodeURIComponent('127'); /**/
+
+fetch(apiUrl + queryParams)
     .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.text(); // JSON 형식의 데이터를 텍스트로 변환하여 반환
+        if (!response.ok) {
+            throw new Error('네트워크 상태가 좋지 않습니다. 오류 코드: ' + response.status);
+        }
+        return response.json();
     })
-    .then(jsonData => {
-      console.log(jsonData); // 받은 JSON 데이터를 콘솔에 출력하거나 원하는 방식으로 처리
-      // 여기서부터 JSON 데이터를 원하는 방식으로 처리할 수 있습니다.
-      // 예를 들어, JSON을 파싱하여 정보를 추출하거나 다른 형식으로 변환하는 등의 작업을 수행할 수 있습니다.
+    .then(data => {
+      const weatherData = data.response.body.items.item;
+      let weatherKeys = Object.keys(weatherData);
+        console.log(weatherKeys);
+
+        // 데이터가 있는지 확인 후 출력
+        if (weatherData) {
+            console.log('현재 날씨 정보:');
+            console.log('날짜 및 시간:', weatherData.baseDate + ' ' + weatherData.baseTime);
+            console.log('현재 기온:', weatherData.temperature + '℃');
+            console.log('습도:', weatherData.humidity + '%');
+
+            // sky 객체가 있는지 확인 후 출력
+            if (weatherData.sky) {
+                console.log('하늘 상태:', weatherData.sky.name);
+            } else {
+                console.log('하늘 상태 데이터 없음');
+            }
+
+            // rainfall 객체가 있는지 확인 후 출력
+            if (weatherData.rainfall) {
+                console.log('강수 확률:', weatherData.rainfall.probability + '%');
+            } else {
+                console.log('강수 확률 데이터 없음');
+            }
+        } else {
+            console.error('API 응답 데이터 없음');
+        }
     })
     .catch(error => {
-      console.error('There has been a problem with your fetch operation:', error);
+        console.error('API 요청 중 오류 발생:', error.message);
     });
-}
-

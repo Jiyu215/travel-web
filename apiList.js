@@ -44,7 +44,7 @@ for (let index = 0; index < cityKeys.length; index++) {
       <ul>
           <div class="card_top"><img src="https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/6287cec8-b327-463a-9fc6-2651c9e2cc57.jpeg" alt="" draggable="false"></div>
           <div class="card_bottom">
-              <h2 class="card_title">부산</h2>
+              <h2 class="card_title">${cityKeys[index]}</h2>
               <span class="card_body">현재 기온, 온도, 상태</span>
             </div>
         </ul>
@@ -120,6 +120,25 @@ document.addEventListener("DOMContentLoaded", function() {
       }); 
   }); 
 }); 
+
+// 날씨정보 불러오기
+// const apiUrl = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst'; // API URL
+// let queryParams = `?serviceKey=${serviceKey}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=20240718&base_time=0600&nx=55&ny=127`;
+// for (let index = 0; index < cityKeys.length; index++) {
+  // fetch(apiUrl + queryParams)
+  //   .then(response => {
+    //     if (!response.ok) {
+      //       throw new Error('Network response was not ok');
+      //     }
+      //     return response.text(); // JSON 형식의 데이터를 텍스트로 변환하여 반환
+      //   })
+      //   .then(jsonData => {
+        //     console.log(jsonData);
+        //   })
+        //   .catch(error => {
+          //     console.error('There has been a problem with your fetch operation:', error);
+          //   });
+          // }
 
 export {cityXYList,cityKeys};
 
